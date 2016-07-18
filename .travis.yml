@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker build -t ezhuravlev/docker-firebird .
+  - docker run -d -p 3050:3050 ezhuravlev/docker-firebird
+
+script:
+  - docker ps | grep -q docker-firebird
