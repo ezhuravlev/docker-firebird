@@ -9,12 +9,11 @@ ENV FIREBIRD_VERSION=2.5.6
 ENV FIREBIRD_BUILD=27020-0
 ENV FIREBIRD_SHA=985848a4f6bd2f9e4e591aff726b567eee873d2b
 
-
 RUN apt-get update \
     && apt-get install -qy wget bzip2 gcc g++ make libicu-dev libncurses5-dev libicu52 \
-    && wget -q -O - "http://downloads.sourceforge.net/project/firebird/firebird/${FIREBIRD_VERSION}-Release/Firebird-${FIREBIRD_VERSION}.${FIREBIRD_BUILD}.tar.bz2" \
-    |  tar xjv \
+    && wget -q "http://downloads.sourceforge.net/project/firebird/firebird/${FIREBIRD_VERSION}-Release/Firebird-${FIREBIRD_VERSION}.${FIREBIRD_BUILD}.tar.bz2" \
     && echo "$FIREBIRD_SHA  Firebird-${FIREBIRD_VERSION}.${FIREBIRD_BUILD}.tar.bz2" | sha1sum -c - \
+    && tar xvjf Firebird-${FIREBIRD_VERSION}.${FIREBIRD_BUILD}.tar.bz2 \
     && cd Firebird-${FIREBIRD_VERSION}.${FIREBIRD_BUILD} \
     && ./configure --prefix=${PREFIX} \
         --with-system-icu \
