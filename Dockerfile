@@ -5,9 +5,9 @@ MAINTAINER Evgeny Zhuravlev <evgeny@zhuravlev.com.ru>
 ENV PREFIX=/usr/local/firebird
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV FIREBIRD_VERSION=2.5.6
-ENV FIREBIRD_BUILD=27020-0
-ENV FIREBIRD_SHA=985848a4f6bd2f9e4e591aff726b567eee873d2b
+ENV FIREBIRD_VERSION=2.5.5
+ENV FIREBIRD_BUILD=26952-0
+ENV FIREBIRD_SHA=1b04e30bc5092a6e8d2121ba627f24f6aa40de7d
 
 RUN apt-get update \
     && apt-get install -qy wget bzip2 gcc g++ make libicu-dev libncurses5-dev libicu52 \
