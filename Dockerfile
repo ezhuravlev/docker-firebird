@@ -37,8 +37,7 @@ RUN apt-get update \
         --with-fbmsg=${PREFIX} \
     # cleanup
     && make clean \
-    # make with -j = cpu-cores
-    && make -j $(awk '/^processor/{n+=1}END{print n}' /proc/cpuinfo) \
+    && make \
     && make silent_install \
     # forward logs to docker log collector
     && ln -sf /dev/stdout /var/log/firebird/firebird.log \
