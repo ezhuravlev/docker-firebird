@@ -35,6 +35,8 @@ RUN apt-get update \
         --with-fbmisc=${PREFIX}/misc \
         --with-fbplugins=${PREFIX} \
         --with-fbmsg=${PREFIX} \
+    # cleanup
+    && make clean \
     # make with -j = cpu-cores
     && make -j $(awk '/^processor/{n+=1}END{print n}' /proc/cpuinfo) \
     && make silent_install \
